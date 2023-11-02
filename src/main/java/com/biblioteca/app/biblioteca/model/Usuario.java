@@ -1,48 +1,35 @@
 package com.biblioteca.app.biblioteca.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
-public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nombre;
-    private String direccion;
-    private String numeroIdentificacion;
+@Table(name = "usuarios")
+public class Usuario extends Persona{
 
-    public Long getId() {
-        return id;
+    private String nombreUsuario;
+    private String contrasena;
+
+    public Usuario(Long id, String nombre, String direccion, String dni, Date createdAt, Date updatedAt, String user, String contrasena) {
+        super(id, nombre, direccion, dni, createdAt, updatedAt);
+        this.nombreUsuario = user;
+        this.contrasena = contrasena;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getNumeroIdentificacion() {
-        return numeroIdentificacion;
-    }
-
-    public void setNumeroIdentificacion(String numeroIdentificacion) {
-        this.numeroIdentificacion = numeroIdentificacion;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }

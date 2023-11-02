@@ -14,14 +14,17 @@ public class Libro {
     private String autor;
     @Temporal(TemporalType.DATE)
     private Date fechaPublicacion;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "categoria_libro",
     joinColumns = @JoinColumn(name = "libro_id"),
     inverseJoinColumns = @JoinColumn(name = "categoria_id"))
     private List<Categoria> categorias;
     private int copiasDisponibles;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "editorial_id")
     private Editorial editorial;
+
+
 
     public Libro(Long id, String titulo, String autor, Date fechaPublicacion, List<Categoria> categorias,
                  int copiasDisponibles, Editorial editorial) {

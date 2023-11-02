@@ -14,8 +14,7 @@ public class Devolucion {
     private Prestamo prestamo;
     @Temporal(TemporalType.DATE)
     private Date fechaDevolucion;
-    @OneToOne
-    private Multa multa;
+    private Double multa;
 
     public Long getId() {
         return id;
@@ -41,11 +40,11 @@ public class Devolucion {
         this.fechaDevolucion = fechaDevolucion;
     }
 
-    public Multa getMulta() {
+    public Double getMulta() {
         return multa;
     }
 
-    public void setMulta(Multa multa) {
+    public void setMulta(Double multa) {
         this.multa = multa;
     }
 }

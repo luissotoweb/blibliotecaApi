@@ -20,8 +20,8 @@ public class Prestamo {
     private Date fechaDevolucion;
     @OneToOne(mappedBy = "prestamo")
     private Devolucion devolucion;
-    @OneToOne
-    private Multa multa;
+
+    private boolean multa;
 
     public Long getId() {
         return id;
@@ -71,11 +71,11 @@ public class Prestamo {
         this.devolucion = devolucion;
     }
 
-    public Multa getMulta() {
+    public boolean isMulta() {
         return multa;
     }
 
-    public void setMulta(Multa multa) {
+    public void setMulta(boolean multa) {
         this.multa = multa;
     }
 }
